@@ -1,0 +1,44 @@
+{
+  "name": "coins-tools",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Prpa",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@types/express": "^4.17.11",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^15.0.2",
+    "@typescript-eslint/eslint-plugin": "^4.22.1",
+    "@typescript-eslint/parser": "^4.22.1",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.25.0",
+    "eslint-config-airbnb-typescript": "^12.3.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-import-resolver-typescript": "^2.4.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^6.0.0",
+    "module-alias": "^2.2.2",
+    "prettier": "^2.2.1",
+    "rimraf": "^3.0.2",
+    "ts-node": "^9.1.1",
+    "ts-node-dev": "^1.1.6",
+    "tslib": "^2.2.0",
+    "typescript": "^4.2.4"
+  },
+  "scripts": {
+    "server": "yarn workspace server",
+    "shared": "yarn workspace shred",
+    "coinmarketcap": "yarn workspace coinmarketcap"
+  },
+  "workspaces": [
+    "shared/",
+    "server/",
+    "coinmarketcap/"
+  ]
+}

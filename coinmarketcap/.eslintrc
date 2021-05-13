@@ -1,0 +1,19 @@
+{
+    // "parser": "@typescript-eslint/parser",
+    "extends": [
+        "../shared/.eslintrc",
+
+    ],
+    "plugins": [
+
+    ],
+    "env": {
+    },
+    "parserOptions": {
+    },
+    "rules": {
+    },
+    "ignorePatterns": [],
+    "settings": {}
+  }
+  

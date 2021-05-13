@@ -1,0 +1,12 @@
+{
+  "name": "shared",
+  "dependencies": {
+    "dotenv-flow": "^3.2.0"
+  },
+  "devDependencies": {
+    "@types/dotenv-flow": "^3"
+  },
+  "scripts": {
+    "load:env": "node ./loadEnv.js"
+  }
+}
