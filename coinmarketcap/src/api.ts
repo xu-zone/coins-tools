@@ -3,7 +3,7 @@ export default {
     url: 'cryptocurrency/listings/latest',
     query: {
       start: 1,
-      limit: 10000,
+      limit: 5000,
     },
   },
 };

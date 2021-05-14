@@ -812,7 +812,7 @@ var deepMerge = function deepMerge() {
   }
 
   args.forEach(function (e) {
-    if (e.constructor === Object) out = mergeTwo(out, e);
+    if (e && e.constructor === Object) out = mergeTwo(out, e);
   });
   return out;
 };
@@ -833,7 +833,7 @@ var _context = /*#__PURE__*/_classPrivateFieldLooseKey("context");
 
 var _baseUrl = /*#__PURE__*/_classPrivateFieldLooseKey("baseUrl");
 
-var Api = function Api(_ref) {
+var Api = function Api(_ref, _fetch) {
   var _this = this;
 
   var url = _ref.url,
@@ -848,11 +848,15 @@ var Api = function Api(_ref) {
     writable: true,
     value: void 0
   });
+  this.get = {};
+  this.post = {};
+  this["delete"] = {};
 
   this.call = function (callData) {
     var finalContext = deepMerge(_classPrivateFieldLooseBase(_this, _context)[_context], callData.context);
     var query = callData.query;
-    var finalUrl = _classPrivateFieldLooseBase(_this, _baseUrl)[_baseUrl] + callData + getGetParamsAsString(query);
+    var finalUrl = _classPrivateFieldLooseBase(_this, _baseUrl)[_baseUrl] + callData.url + getGetParamsAsString(query);
+    console.log('Calling::', finalUrl);
     return /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/runtime_1.mark(function _callee() {
       var result, json;
       return runtime_1.wrap(function _callee$(_context2) {
@@ -864,20 +868,24 @@ var Api = function Api(_ref) {
 
             case 2:
               result = _context2.sent;
+              console.log(result);
 
               if (!(result.status === 200)) {
-                _context2.next = 8;
+                _context2.next = 9;
                 break;
               }
 
-              _context2.next = 6;
+              _context2.next = 7;
               return result.json();
 
-            case 6:
+            case 7:
               json = _context2.sent;
               return _context2.abrupt("return", json);
 
-            case 8:
+            case 9:
+              console.log('returning wrong');
+
+            case 10:
             case "end":
               return _context2.stop();
           }
@@ -889,8 +897,16 @@ var Api = function Api(_ref) {
   _classPrivateFieldLooseBase(this, _baseUrl)[_baseUrl] = url;
   _classPrivateFieldLooseBase(this, _context)[_context] = context;
   Object.keys(calls).forEach(function (key) {
-    _this[key] = _this.call(calls[key]);
+    var _calls$key, _calls$key$context;
+
+    var method = ((_calls$key = calls[key]) == null ? void 0 : (_calls$key$context = _calls$key.context) == null ? void 0 : _calls$key$context.method) || 'get';
+    _this[method.toLowerCase()][key] = _this.call(calls[key]);
   });
+
+  if (_fetch) {
+    if (typeof global !== 'undefined' && !global.fetch) global.fetch = _fetch;
+    if (typeof window !== 'undefined' && !window.fetch) window.fetch = _fetch;
+  }
 };
 
 exports.default = Api;

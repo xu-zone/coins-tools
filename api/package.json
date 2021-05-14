@@ -1,11 +1,11 @@
 {
   "name": "api",
-  "version": "0.0.3",
+  "version": "0.0.6",
   "homepage": "",
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
-  "source": "lib/index.ts",
+  "source": "index.ts",
   "typings": "dist/index.d.ts",
   "files": [
     "dist",
@@ -18,8 +18,10 @@
     "access": "public"
   },
   "scripts": {
-    "build": "tsdx build",
-    "build:all": "tsdx build --format cjs,esm,umd,system"
+    "build": "yarn build:all",
+    "tsdx": "tsdx",
+    "nuke:dist": "yarn rimraf dist",
+    "build:all": "yarn nuke:dist && tsdx build --format cjs,esm,umd,system"
   },
   "devDependencies": {
     "@types/rimraf": "^3",
