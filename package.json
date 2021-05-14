@@ -34,11 +34,13 @@
   "scripts": {
     "server": "yarn workspace server",
     "shared": "yarn workspace shred",
-    "coinmarketcap": "yarn workspace coinmarketcap"
+    "coinmarketcap": "yarn workspace coinmarketcap",
+    "api": "yarn workspace api"
   },
   "workspaces": [
     "shared/",
     "server/",
-    "coinmarketcap/"
+    "coinmarketcap/",
+    "api/"
   ]
 }

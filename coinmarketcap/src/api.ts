@@ -1,6 +1,9 @@
-import conf from './config';
-
-const AUTH_HEADER_FIELD = 'X-CMC_PRO_API_KEY';
-class Api {
-  constructor({ headers }) {}
-}
+export default {
+  list: {
+    url: 'cryptocurrency/listings/latest',
+    query: {
+      start: 1,
+      limit: 10000,
+    },
+  },
+};

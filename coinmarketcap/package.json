@@ -1,12 +1,27 @@
 {
   "name": "coinmarketcap",
   "version": "0.0.1",
+  "homepage": "",
+  "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
-  "source": "index.ts",
+  "source": "lib/index.ts",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "lib"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "env": "cd ../shared && yarn load:env",
-    "start": "NODE_ENV=development  &&  ts-node ./index.ts"
+    "start": "NODE_ENV=development  &&  ts-node ./index.ts",
+    "build": "tsdx build",
+    "build:all": "tsdx build --format cjs,esm,umd,system"
   },
   "devDependencies": {
     "@types/dotenv-flow": "^3",
@@ -36,7 +51,11 @@
     "rimraf": "^3.0.2",
     "ts-node": "^9.1.1",
     "ts-node-dev": "^1.1.6",
+    "tsdx": "^0.14.1",
     "tslib": "^2.2.0",
     "typescript": "^4.2.4"
+  },
+  "dependencies": {
+    "api": "workspace:api"
   }
 }
