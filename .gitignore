@@ -59,7 +59,7 @@ typings/
 .env
 
 
-lib/
+dist/
 .DS_STORE
 node_modules
 .flowconfig
