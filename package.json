@@ -39,8 +39,6 @@
   },
   "workspaces": [
     "shared/",
-    "server/",
-    "coinmarketcap/",
-    "api/"
+    "server/"
   ]
 }

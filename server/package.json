@@ -31,5 +31,9 @@
   },
   "scripts": {
     "nuke:all": "rimraf ./src"
+  },
+  "dependencies": {
+    "api": "workspace:api",
+    "coinmarketcap": "workspace:sources/coinmarketcap"
   }
 }

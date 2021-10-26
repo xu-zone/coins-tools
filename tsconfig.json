@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "noEmit": true,
-    "target": "es6",
+    "target": "es2015",
     "module": "esnext",
     "noImplicitAny": false,
     "preserveConstEnums": true,
@@ -27,14 +27,9 @@
     "sourceMap": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "isolatedModules": false,
+    "isolatedModules": false
   },
   "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
-  "exclude": [
-    "node_modules/**",
-    "build/**",
-    "coverage/**",
-    "**/node_modules"
-  ],
+  "exclude": ["node_modules/**", "build/**", "coverage/**", "**/node_modules"]
   // "paths": {}
 }

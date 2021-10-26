@@ -1,12 +1,32 @@
 {
   "name": "shared",
+  "version": "0.0.2",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "source": "index.ts",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "lib"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "dotenv-flow": "^3.2.0"
   },
   "devDependencies": {
-    "@types/dotenv-flow": "^3"
+    "@types/dotenv-flow": "^3",
+    "@types/rimraf": "^3",
+    "rimraf": "^3.0.2",
+    "tsdx": "^0.14.1"
   },
   "scripts": {
-    "load:env": "node ./loadEnv.js"
+    "tsdx": "tsdx",
+    "nuke:dist": "yarn rimraf dist",
+    "build:all": "yarn nuke:dist && tsdx build --format cjs,esm,umd,system"
   }
 }

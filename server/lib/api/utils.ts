@@ -1,4 +1,4 @@
-import { isObject, isEmpty } from 'lodash';
+import { isObject } from 'lodash';
 // import { EXCLUDED } from './Constants';
 const EXCLUDED = ['body', 'expected', 'GET'];
 
